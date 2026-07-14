@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cow Eye Dissection</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="dissection-shell">
+      <p><a class="module-link secondary" href="./index.html">← Back to modules</a></p>
+      <section class="dissection-layout">
+        <div class="canvas-panel">
+          <canvas id="dissectionCanvas"></canvas>
+        </div>
+        <aside class="info-panel">
+          <h2>Cow Eye</h2>
+          <p>
+            This first build shows a simple 3D scene that can be rotated and
+            explored. The next step will add the cutting and structure-labeling
+            mechanics.
+          </p>
+          <div class="controls" role="toolbar" aria-label="Dissection tools">
+            <button class="control-btn active" data-tool="rotate">Rotate</button>
+            <button class="control-btn" data-tool="cut">Split View</button>
+            <button class="control-btn" data-tool="probe">Probe</button>
+            <button class="control-btn" data-tool="dissect">Dissect</button>
+          </div>
+          <div class="mode-toggle">
+            <button id="exploreModeBtn" class="mode-btn">Explore Mode</button>
+          </div>
+          <div class="cut-panel">
+            <label for="incisionRange">Incision depth</label>
+            <input id="incisionRange" type="range" min="0" max="100" value="0" />
+            <div class="cut-value"><span id="incisionValue">0%</span></div>
+          </div>
+          <div class="dissect-panel" hidden>
+            <h3 id="dissectTitle">Dissect Sequence</h3>
+            <div id="dissectDesc">No steps loaded.</div>
+            <div id="dissectProgress">Step 0 / 0</div>
+            <button id="dissectNext">Next step</button>
+          </div>
+          <div class="callout">
+            <strong>What to test:</strong> drag to rotate the specimen, switch
+            tools, and confirm the scene renders smoothly in your browser.
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="./cow-eye.js"></script>
+  </body>
+</html>
